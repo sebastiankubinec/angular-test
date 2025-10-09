@@ -1,0 +1,32 @@
+<section class="quests-list">
+    <h2>Quests</h2>
+    <button class="add-quest-btn" (click)="addQuest()">Add Quest</button>
+    <ul>
+        @for (quest of quests; track quest.name; let i = $index) {
+        <li class="quest-holder">
+            <div class="quest-header">
+
+                <span class="quest-title">{{ quest.name }}</span>
+                
+                <span class="quest-status" [class.completed]="quest.complete">
+                    {{ quest.complete ? 'Completed' : 'In progress' }}
+                </span>
+            </div>
+            <div class="quest-description">{{ quest.description }}</div>
+            <h4 class="quest-xp">{{quest.xp}} XP</h4>
+            
+            <button (click)="deleteQuest(i)">Delete</button>
+            @if(quest.xp < 70 ){ <span class="normal-xp"> Normal XP!</span>
+                }
+                @if(quest.xp >= 70 && quest.xp <= 100){ <span class="super-xp"> Super XP</span>
+                    }
+                    @if(quest.xp > 100){
+                    <span class="mega-xp"> MEGA XP!</span>
+                    }
+
+        </li>
+        }
+    </ul>
+
+
+</section>
