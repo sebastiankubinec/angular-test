@@ -1,218 +1,201 @@
-quests-list {
-    max-width: 500px;
-    margin: 40px auto;
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
-    padding: 24px 32px;
+.quests-list {
+  max-width: 680px;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 30px rgba(20, 30, 40, 0.06);
+  padding: 28px 32px;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
 }
 
 .quests-list h2 {
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 24px;
-    color: #333;
+  text-align: center;
+  font-size: 1.75rem;
+  margin-bottom: 18px;
+  color: #111827;
+  letter-spacing: -0.02em;
 }
 
-.quests-list ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+.buttons-container {
+  display: flex;
+  justify-content: flex-start;
+  gap: 12px;
+  margin: 16px 0 24px 0;
+  max-width: 680px; /* match quests list width */
+}
+
+.add-quest-btn, .toggle-btn {
+  display: inline-block;
+  background: #ffd54fcc;
+  color: var(--accent-dark);
+  border: none;
+  padding: 12px 28px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(255, 213, 79, 0.4);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  user-select: none;
+  font-family: inherit;
+  text-align: center;
+}
+
+.add-quest-btn:hover, .toggle-btn:hover {
+  background: #ffca28;
+  box-shadow: 0 8px 20px rgba(255, 213, 79, 0.6);
+  transform: translateY(-2px);
+}
+
+.add-quest-btn:active, .toggle-btn:active {
+  background: #e6c24d;
+  box-shadow: none;
+  transform: translateY(0);
+}
+
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .quest-holder {
-    background: #f6f8fa;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    margin-bottom: 18px;
-    padding: 18px 20px;
-    transition: box-shadow 0.2s;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+  background: #fbfdff;
+  border: 1px solid #e6eef6;
+  border-radius: 10px;
+  margin-bottom: 14px;
+  padding: 16px 18px;
+  transition: box-shadow 0.18s, transform 0.12s;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
 }
-.quest-holder:last-child {
-    margin-bottom: 0;
+
+.quest-holder:hover {
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+  transform: translateY(-3px);
 }
 
 .quest-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 8px;
 }
+
 .quest-title {
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: #0f172a;
-    margin-right: 8px;
-    line-height: 1.2;
-    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-right: 8px;
+  line-height: 1.2;
 }
 
 .quest-status {
-    font-size: 0.95rem;
-    padding: 2px 10px;
-    border-radius: 12px;
-    background: #ffe082;
-    color: #7a5d00;
-    font-weight: 500;
-    letter-spacing: 0.5px;
+  font-size: 0.88rem;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #ffd54f;
+  color: #7a5d00;
+  font-weight: 600;
 }
+
 .quest-status.completed {
-    background: #c8e6c9;
-    color: #256029;
+  background: #d1fae5;
+  color: #065f46;
 }
 
 .quest-description {
-    color: var(--muted);
-    font-size: 1rem;
-    margin: 8px 0 12px 0;
-    line-height: 1.5;
-    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    font-weight: 400;
+  color: #586068;
+  font-size: 1rem;
+  margin: 8px 0 12px 0;
+  line-height: 1.5;
+  font-weight: 400;
 }
-.quests-list {
-    --card-bg: #fbfdff;
-    --muted: #586068;
-    --accent: #ffd54f;
-    --accent-dark: #7a5d00;
-    max-width: 680px;
-    margin: 40px auto;
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 6px 30px rgba(20, 30, 40, 0.06);
-    padding: 28px 32px;
-    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-}
-
-.quests-list h2 {
-    text-align: center;
-    font-size: 1.75rem;
-    margin: 0 0 18px 0;
-    color: #111827;
-    letter-spacing: -0.02em;
-}
-
-.add-quest-btn {
-    display: block;
-    margin: 12px auto 20px auto;
-    background: #2563eb;
-    color: white;
-    border: none;
-    padding: 8px 14px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: 600;
-}
-.add-quest-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 16px rgba(37,99,235,0.16); }
-
-.quests-list ul { list-style: none; padding: 0; margin: 0; }
-
-.quest-holder {
-    background: var(--card-bg);
-    border: 1px solid #e6eef6;
-    border-radius: 10px;
-    margin-bottom: 14px;
-    padding: 16px 18px;
-    transition: box-shadow 0.18s, transform 0.12s;
-}
-.quest-holder:hover { box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06); transform: translateY(-3px); }
-.quest-holder:last-child { margin-bottom: 0; }
-
-.quest-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 12px;
-}
-
-.quest-status {
-    font-size: 0.88rem;
-    padding: 4px 10px;
-    border-radius: 999px;
-    background: var(--accent);
-    color: var(--accent-dark);
-    font-weight: 600;
-}
-.quest-status.completed { background: #d1fae5; color: #065f46; }
-
-
-
-.quest-meta { display:flex; align-items:center; gap:12px; }
 
 .quest-xp {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 6px 14px;
-    border-radius: 999px;
-    background: linear-gradient(90deg, #fff4db 0%, #ffe082 100%);
-    color: var(--accent-dark);
-    font-weight: 700;
-    font-size: 1rem;
-    box-shadow: 0 4px 12px rgba(20, 30, 40, 0.04);
-    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-}
-.quest-xp::before { content: '★'; color: #f59e0b; font-size: 0.95rem; }
-.quest-xp.super { background: linear-gradient(90deg, #e6ffed 0%, #b9f6ca 100%); color: #065f46; border: 1px solid #22c55e; }
-
-@media (max-width: 520px) {
-    .quests-list { padding: 18px; margin: 18px; }
-    .quest-title { font-size: 1rem; }
-    .quest-xp { font-size: 0.9rem; padding: 5px 10px; }
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #fff4db 0%, #ffe082 100%);
+  color: #7a5d00;
+  font-weight: 700;
+  font-size: 1rem;
+  box-shadow: 0 4px 12px rgba(20, 30, 40, 0.04);
 }
 
-.add-quest-btn {
-    display: block;
-    margin: 16px auto 24px auto;
-    background: var(--accent);
-    color: var(--accent-dark);
-    border: none;
-    padding: 12px 28px;
-    border-radius: 12px;
-    font-weight: 700;
-    font-size: 1.1rem;
-    cursor: pointer;
-    box-shadow: 0 4px 12px rgba(255, 213, 79, 0.4);
-    transition: transform 0.2s ease, box-shadow 0.3s ease;
-    user-select: none;
-    font-family: inherit;
-    text-align: center;
-}
-.add-quest-btn:hover {
-    background: #ffd54fcc;
-    box-shadow: 0 8px 20px rgba(255, 213, 79, 0.6);
-    transform: translateY(-2px);
-}
-.add-quest-btn:active {
-    background: #e6c24d;
-    box-shadow: none;
-    transform: translateY(0);
+.quest-xp::before {
+  content: '★';
+  color: #f59e0b;
 }
 
+.normal-xp {
+  color: #586068;
+  font-weight: 600;
+  font-style: italic;
+  margin-left: 10px;
+}
+
+.super-xp {
+  color: #256029;
+  font-weight: 700;
+  margin-left: 10px;
+  font-style: italic;
+}
+
+.mega-xp {
+  color: #b71c1c;
+  font-weight: 700;
+  margin-left: 10px;
+  font-style: italic;
+}
 
 .quest-holder button {
-    background: #ff6b6b;
-    color: white;
-    border: none;
-    font-weight: 600;
-    font-size: 0.95rem;
-    padding: 6px 14px;
-    border-radius: 8px;
-    cursor: pointer;
-    box-shadow: 0 2px 8px rgba(255, 107, 107, 0.5);
-    transition: background-color 0.2s ease, box-shadow 0.3s ease, transform 0.2s ease;
-    user-select: none;
-    font-family: inherit;
-    float: right;
-    margin-top: -36px;
+  background: #ff6b6b;
+  color: white;
+  border: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 6px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(255, 107, 107, 0.5);
+  transition: background-color 0.2s ease, box-shadow 0.3s ease, transform 0.2s ease;
+  user-select: none;
+  font-family: inherit;
+  float: right;
+  margin-top: -36px;
 }
+
 .quest-holder button:hover {
-    background: #ff5252;
-    box-shadow: 0 4px 16px rgba(255, 82, 82, 0.7);
-    transform: translateY(-1px);
+  background: #ff5252;
+  box-shadow: 0 4px 16px rgba(255, 82, 82, 0.7);
+  transform: translateY(-1px);
 }
+
 .quest-holder button:active {
-    background: #e04747;
-    box-shadow: none;
-    transform: translateY(0);
+  background: #e04747;
+  box-shadow: none;
+  transform: translateY(0);
+}
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px; 
+}
+
+.header img {
+  width: 48px; 
+  height: auto; 
+  border-radius: 4px; 
+}
+ 
+.header h1 {
+  font-size: 1.8rem;
+  color: #333;
+  margin: 0;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }

@@ -1,35 +1,34 @@
-import { Component } from '@angular/core';
-
-type Quest = {
-  name: string;
-  description: string;
-  complete: boolean;
-  xp: number;
-};
+import { Component, OnInit, OnDestroy } from "@angular/core";
+import { QuestsService, Quest } from "./service";
 
 @Component({
-  selector: 'app-quests',
+  selector: "app-quests",
+  templateUrl: "./quests.html",
+  styleUrls: ["./quests.css"],
   standalone: true,
-  templateUrl: './quests.html',
-  styleUrls: ['./quests.css'],
 })
-export class Quests {
-  quests: Quest[] = [
-    { name: "Rescue", description: "Rescue the princess", xp: 50, complete: false },
-    { name: "Find the rarest gem", description: "Find the green gem", xp: 70, complete: true },
-    { name: "Kill the bandits", description: "Kill all Bandits", xp: 150, complete: true },
-  ];
-
+export class QuestsComponent implements OnInit, OnDestroy {
+  quests: Quest[] = [];
   addQuest() {
     const newQuest: Quest = {
-      name: 'New Quest',
-      description: 'This is a static description',
-      xp: 80,
+      name: "New Quest",
+      description: "Quest Description",
+      xp: 100,
       complete: false,
     };
     this.quests.push(newQuest);
   }
 
+  constructor(private questsService: QuestsService) {}
+
+  ngOnInit(): void {
+    this.quests = this.questsService.getQuests();
+    console.log("Quests created.");
+  }
+
+  ngOnDestroy(): void {
+    console.log("Quest destroyed.");
+  }
   deleteQuest(index: number) {
     this.quests.splice(index, 1);
   }
