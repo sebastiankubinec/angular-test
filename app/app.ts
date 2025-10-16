@@ -1,26 +1,31 @@
 import { Component } from '@angular/core';
-import { QuestsComponent } from './quests/quests';
+import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { HomeComponent } from './home/home';
+import { QuestsComponent } from './quests/quests';
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, QuestsComponent],
+  standalone: true,
+  imports: [CommonModule, RouterOutlet, RouterLink, RouterLinkActive, HomeComponent, QuestsComponent],
   template: `
-   <div class="button-container">
-   
-   <button class="add-quest-btn" (click)="toggleQuests()">
-      {{showQuests ? 'Hide Quests' : 'Show Quests' }}
-    </button>
+    <nav>
+      <a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+      <a routerLink="quests" routerLinkActive="active">Quests</a>
+    </nav>
+
+    <div class="button-container">
+      <button class="add-quest-btn" (click)="toggleQuests()">
+        {{ showQuests ? 'Hide Quests' : 'Show Quests' }}
+      </button>
     </div>
 
-    <app-quests *ngIf="showQuests"></app-quests>
+    <router-outlet></router-outlet>
   `,
-  styleUrls: ['./quests/quests.css'],
-  standalone: true,
+  styleUrls: ['./quests/quests.css']
 })
 export class App {
   showQuests = true;
-
   toggleQuests() {
     this.showQuests = !this.showQuests;
   }
